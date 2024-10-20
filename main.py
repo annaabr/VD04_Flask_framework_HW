@@ -1,25 +1,21 @@
-import flask
-
 from flask import Flask, render_template
 
 app = Flask(__name__)
 
 @app.route('/')
-def html_func1():
-    return render_template("TEST.html")
-    #return render_template("index.html")
+def home():
+    return render_template('index.html')
 
-# @app.route('/blog/')
-# def html_func2():
-#     return (render_template("blog.html")
-#
-# @app.route('/contacts/'))
-# def html_func3():
-#     return render_template("contacts.html")
+@app.route('/blog/')
+def blog():
+    return render_template('blog.html')
+
+@app.route('/contacts/')
+def contacts():
+    return render_template('contacts.html')
 
 if __name__ == '__main__':
-    app.run()
-
+    app.run(debug=True)
 
 # app = Flask(__name__)
 # @app.route('/')
